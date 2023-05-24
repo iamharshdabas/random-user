@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import axios from 'axios'
 
 const App = () => {
   const [user, setUser] = useState({})
   const fetchRandomUser = async () => {
-    const response = await axios.get('https://randomuser.me/api/')
-    setUser(response.data.results[0])
+    const response = await fetch('https://randomuser.me/api/')
+    const data = await response.json()
+    setUser(data.results[0])
   }
 
   return (
